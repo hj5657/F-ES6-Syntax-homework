@@ -1,11 +1,12 @@
 const parseData = (input) => {
   const { data, column } = input;
   let output = [];
-  for (let i = 0; i < data.length; i++) {
-    let dataInfo = data[i];
+  for (const dataInfo of data) {
     let outputValue = {};
-    for (let j = 0; j < column.length; j++) {
-      outputValue[column[j].name] = dataInfo[j];
+    let index = 0;
+    for (const columnInfo of column) {
+      outputValue[columnInfo.name] = dataInfo[index];
+      index++;
     }
     output.push(outputValue);
   }
